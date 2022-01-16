@@ -11,11 +11,10 @@ def getMatchups(respData):
     matchups = Util.stripWhiteSpaceFromstrings(matchups)
     return matchups
 
-
+# This gets the HTML from the webpage specified and stores it in the respData variable.
 url = 'https://www.rotowire.com/hockey/nhl-lineups.php'
 values = {'s':'python programming',
           'submit':'search'}
-   
 data = urllib.parse.urlencode(values)
 data = data.encode('utf-8')
 req = urllib.request.Request(url, data)
@@ -24,4 +23,6 @@ respData = resp.read().decode("utf8")
 
 matchups = getMatchups(respData)
 csvUtil.printMatchups(matchups)
+
+
 			

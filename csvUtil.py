@@ -9,7 +9,6 @@ def printMatchups(matchUps):
             output = team + ","
             away = False
         else:
-            # f.write(team)
             output = output + team + '\n'
             away = True
             f.write(output)
