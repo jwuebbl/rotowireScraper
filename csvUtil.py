@@ -1,13 +1,9 @@
 import csv
 
 def printMatchups(matchUps):
-    f = open('matchups.csv', 'w')
-    
+    f = open('./csv/matchups.csv', 'w')
     # Away was listed first on the rotowire website. Therefor every other team will be an away team.
-    matchups = []
-    output = ''
     away = True
-
     for team in matchUps:
         if away == True:
             output = team + ","

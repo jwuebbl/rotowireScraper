@@ -1,9 +1,15 @@
 import urllib.request
 import urllib.parse
+from webbrowser import get
 import Util
 import re
 import printUtil
 import csvUtil
+
+def getMatchups(respData):
+    matchups = re.findall(r'[A-Z][a-z]* {10,}', respData)
+    matchups = Util.stripWhiteSpaceFromstrings(matchups)
+    return matchups
 
 
 url = 'https://www.rotowire.com/hockey/nhl-lineups.php'
@@ -16,7 +22,6 @@ req = urllib.request.Request(url, data)
 resp = urllib.request.urlopen(req)
 respData = resp.read().decode("utf8")
 
-matchUps = re.findall(r'[A-Z][a-z]* {10,}', respData)
-matchUps = Util.stripWhiteSpaceFromstrings(matchUps)
-csvUtil.printMatchups(matchUps)
+matchups = getMatchups(respData)
+csvUtil.printMatchups(matchups)
 			
