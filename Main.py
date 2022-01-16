@@ -1,3 +1,4 @@
+import datetime
 import urllib.request
 import urllib.parse
 from webbrowser import get
@@ -20,6 +21,8 @@ data = data.encode('utf-8')
 req = urllib.request.Request(url, data)
 resp = urllib.request.urlopen(req)
 respData = resp.read().decode("utf8")
+
+
 
 matchups = getMatchups(respData)
 csvUtil.printMatchups(matchups)
